@@ -1,6 +1,7 @@
 package com.obada.restaurant.domain.entity;
 
 
+import com.obada.restaurant.domain.GeoLocation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,7 +39,7 @@ public class Restaurant {
     private Float averageRating ;
 
     @GeoPointField
-    private GeoPoint geoPoint;
+    private GeoPoint geoLocation;
 
     @Field(type = FieldType.Nested)
     private Address address;
