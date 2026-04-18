@@ -1,10 +1,8 @@
 package com.obada.restaurant.domain.dto;
 
 
-import com.obada.restaurant.domain.entity.Address;
-import com.obada.restaurant.domain.entity.OperatingHours;
+
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
