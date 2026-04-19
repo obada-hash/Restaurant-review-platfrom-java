@@ -13,6 +13,8 @@ import com.obada.restaurant.service.PhotoService;
 import com.obada.restaurant.service.RestaurantService;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +63,12 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant getRestaurant(String id) {
-        return null;
+    public Page<Restaurant> searchRestaurant(Float minRating, Pageable pageable) {
+        if(minRating != null) {
+            return restaurantRepo.findByAverageRatingGreaterThanEqual(minRating, pageable);
+        }
+
+        return restaurantRepo.findAll(pageable);
     }
+
 }
