@@ -20,8 +20,11 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers(HttpMethod.GET, "/api/v1/photos/**").permitAll()
-                        .anyRequest().authenticated()
+                        auth
+                                .requestMatchers(HttpMethod.GET, "/api/v1/photos/**").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/api/v1/restaurants/**").permitAll()
+                                .anyRequest().authenticated()
+
                 )
                 .oauth2ResourceServer(oauth2 ->
                         oauth2.jwt(jwt ->

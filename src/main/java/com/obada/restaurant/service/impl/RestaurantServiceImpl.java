@@ -64,6 +64,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Page<Restaurant> searchRestaurant(Float minRating, Pageable pageable) {
+
         if(minRating != null) {
             return restaurantRepo.findByAverageRatingGreaterThanEqual(minRating, pageable);
         }
